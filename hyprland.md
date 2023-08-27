@@ -4,11 +4,11 @@
 
 最快：
 
-安装：`sudo pacman -S hyprland-git gtk3`
+安装：`sudo pacman -S hyprland gtk3`
 
 启动：`Hyprland`
 
-一些软件需要的依赖，不过有一些在安装hyprland的时候就会安装，目前所需的是qt6-wayland和glfw-wayland：
+一些软件需要更多的依赖，不过有一些在安装hyprland的时候就会被安装，下面是一些常见的：
 
 ```bash
 sudo pacman -S xorg-xwayland qt5-wayland qt6-wayland glfw-wayland xdg-desktop-portal-hyprland
@@ -16,11 +16,11 @@ sudo pacman -S xorg-xwayland qt5-wayland qt6-wayland glfw-wayland xdg-desktop-po
 
 参考：
 
-https://www.bilibili.com/read/cv24967541/
+[Hyprland 安装配置|缩放模糊|输入法](https://www.bilibili.com/read/cv24967541/)
 
-https://www.bilibili.com/read/cv24998287?from=articleDetail
+[HiDPI(高分屏) Hyprland 安装配置](https://www.bilibili.com/read/cv24998287?from=articleDetail)
 
-https://www.bilibili.com/read/cv22707313/
+[ArchLinux下Hyprland配置指北 ](https://www.bilibili.com/read/cv22707313/)
 
 # 包管理器
 
@@ -36,6 +36,8 @@ git clone https://aur.archlinux.org/paru.git
 cd paru
 makepkg -si
 ```
+
+提示：清理需谨慎！！！
 
 一、清理安装包缓存
 
@@ -78,10 +80,12 @@ gtk3(安装dconf,dconf-editor):
 
 QT: 
 
+```bash
 export QT_AUTO_SCREEN_SCALE_FACTOR=0
 export QT_WAYLAND_FORCE_DPI=144
-比如OBS必须在wayalnd下运行
-Hyprland must use `exec Hyprland` to run
+```
+
+比如OBS必须在wayalnd下运行：Hyprland must use `exec Hyprland` to run
 
 electron: 
 
@@ -111,10 +115,10 @@ export GLFW_IM_MODULE=ibus
 exec-once=fcitx5 --replace -d
 ```
 
-输入法也要设置一下dpi
+输入法也要设置一下dpi，下面是图形界面的步骤：
 
-1. fcitx5 -> configtool ->Addons -> Classic User Interface -> ✅Use Per Screen DPI
-2. fcitx5 -> configtool ->Addons -> Classic User Interface -> Force Font DPI on Wayland 144
+1. fcitx5 ->Addons -> Classic User Interface -> 勾上 Use Per Screen DPI
+2. fcitx5 ->Addons -> Classic User Interface -> Force Font DPI on Wayland 设置为 144
 
 # 复制与粘贴
 
@@ -140,7 +144,7 @@ for i in $(cliphist list | awk -F. '{ print $2 }'); do cliphist delete-query "$i
 exec-once = wl-paste --type text --watch cliphist store
 exec-once = wl-paste --type image --watch cliphist store
 
-# 在一个软件内复制，这软件关闭后无法进行粘贴，需要配置快捷键显示剪切板历史，需要注意的是rofi是软件启动器需要额外安装。
+# 在一个软件内复制，这软件关闭后无法进行历史粘贴，需要配置快捷键显示剪切板历史，需要注意的是rofi是软件启动器，需要额外安装。
 bind = SUPER_SHIFT, V, exec, cliphist list | rofi -dmenu | cliphist decode | wl-copy
 ```
 
@@ -220,7 +224,7 @@ swww init
 swww img /home/xxx/wallpaper/p1.jpg
 ```
 
-最好是写在一个脚本里面，然后在hyprland.conf中的exec-once写上来。
+如果在hyprland的配置文件中写这两个到exec-once中，可能会启动失败，这两个是有启动顺序的，最好是写在一个脚本里面，然后在hyprland.conf中的exec-once写上脚本的路径。
 
 # 通知守护程序
 
@@ -297,11 +301,18 @@ sudo systemctl enable bluetooth
 blueman的使用：blueman-manager
 也可以点击ui图标。
 
-# 锁屏
+```conf
+# 蓝牙自启动
+exec-once = blueman-applet
+```
+
+想要自动连接，需要在界面中将设备设置为信任设备，然后就会自动连接了。
+
+# 临时锁屏
 
 安装：[swaylock-effiecs](https://github.com/mortie/swaylock-effects)
 
-注意，可能会误装：
+注意，可能会误装（不同的源可能会出现重名的，尽量使用官方的）：
 > I believe you're all using jirutka's fork of swaylock-effects ([https://github.com/jirutka/swaylock-effects](https://github.com/jirutka/swaylock-effects)), that's what the AUR package has been changed to these days. There is no 1.6.10 version in this repo.
 
 ```bash
@@ -342,6 +353,8 @@ bind = $mainMod, E, exec, thunar # Show the graphical file browser
 
 `paru -S ristretto mpv`
 
+在文件管理器可以直接双击文件查看，如果没有那就看看默认打开文件的应用有没有设置成这两个。
+
 # wifi管理
 
 在装archlinux的时候一般都会装了networkmanage
@@ -350,7 +363,7 @@ tip：如果有了networkmanage，直接`paru -S network-manager-applet`就可�
 
 参考：[网络最小适配器](https://unix.stackexchange.com/questions/292195/install-network-manager-applet-tray-icon-on-arch-linux-gnome-3-20)
 
-但是这里还是从头开始：
+如果啥都没有，或者出了什么问题，从头开始看/检查：
 
 安装 wpa_supplicant 工具
 
@@ -430,7 +443,7 @@ sudo systemctl start NetworkManager.service
 
 使用sddm
 
-安装paru -S sddm-git
+安装：`paru -S sddm-git`
 
 开启服务就可以了：
 
@@ -439,9 +452,11 @@ sudo systemctl enable sddm
 sudo systemctl start sddm
 ```
 
+注意：使用sddm后，export的变量，都要在hyprland的配置文件中设置（env），参考：[hyprland wiki env](https://wiki.hyprland.org/Configuring/Environment-variables/)
+
 # 设置用户图标
 
-将图片放在家目录下即可，然后命名为`.face.icon`
+将图片放在家目录下即可，然后命名为`.face.icon`，后缀就是icon，可以使用png/jpg改名字，比如：`maple.png -> .face.icon`。
 
 给sddm可以访问的权限就好。
 
@@ -450,7 +465,7 @@ setfacl -m u:sddm:x ~/
 setfacl -m u:sddm:r ~/.face.icon
 ```
 
-重启sddm：`sudo systemctl restart sddm`
+重启sddm：`sudo systemctl restart sddm`，有时候需要重启电脑。
 
 推荐一个主题：[sddm主题](https://github.com/aczw/sddm-theme-corners)
 
@@ -477,6 +492,7 @@ sudo modprobe vboxdrv
 1. Failed to enumerate host USB devices.
 VirtualBox is not currently allowed to access USB devices. You can change this by adding your user to the 'vboxusers' group. Please see the user manual for a more detailed explanation.
 
+解决：
 
 ```bash
 sudo usermod -a -G vboxusers $USER
@@ -486,6 +502,6 @@ groups $USER
 
 # 内存查看器（可选）
 
-paru -S btop
+安装：`paru -S btop`
 
-就这么简单。
+使用命令启动：btop
