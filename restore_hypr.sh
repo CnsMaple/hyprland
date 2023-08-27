@@ -26,6 +26,7 @@ software_list=(
     swww
     mako
     sddm-git
+    sddm-theme-corners-git
 
     fcitx5
     fcitx5-chinese-addons
@@ -194,6 +195,9 @@ if [[ $CFG == "Y" || $CFG == "y" ]]; then
     cp -r swaylock ~/.config/
     cp -r swww ~/.config/
     cp -r waybar ~/.config/
+
+    sudo mkdir /etc/sddm.conf.d
+    echo -e "[Theme]\nCurrent=corners" | sudo tee -a /etc/sddm.conf.d/theme.conf &>> $INSTLOG
 fi
 
 

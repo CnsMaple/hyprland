@@ -426,7 +426,7 @@ sudo systemctl start wpa_supplicant.service
 sudo systemctl start NetworkManager.service
 ```
 
-# 登陆界面
+# 设置用户登陆界面
 
 使用sddm
 
@@ -438,6 +438,23 @@ sudo systemctl start NetworkManager.service
 sudo systemctl enable sddm
 sudo systemctl start sddm
 ```
+
+# 设置用户图标
+
+将图片放在家目录下即可，然后命名为`.face.icon`
+
+给sddm可以访问的权限就好。
+
+```bash
+setfacl -m u:sddm:x ~/
+setfacl -m u:sddm:r ~/.face.icon
+```
+
+重启sddm：`sudo systemctl restart sddm`
+
+推荐一个主题：[sddm主题](https://github.com/aczw/sddm-theme-corners)
+
+参考：[arch user icon](https://wiki.archlinux.org/title/SDDM#User_icon_(avatar))
 
 # 安装virtualbox（可选）
 
