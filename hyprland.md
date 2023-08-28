@@ -133,8 +133,8 @@ exec-once=fcitx5 --replace -d
 echo "Hello World" | wl-copy
 # 粘贴
 wl-paste
-# 内容太多记得手动删除，cliphist没提供一键删除！
-for i in $(cliphist list | awk -F. '{ print $2 }'); do cliphist delete-query "$i"; done
+# 复制了太多东西可以清空一下剪切板
+cliphist wipe
 ```
 
 在配置文件里启用：
