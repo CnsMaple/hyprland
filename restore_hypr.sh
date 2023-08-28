@@ -49,6 +49,8 @@ software_list=(
     grim 
     swappy 
 
+    libnotify
+
     obs-studio
 
     polkit-kde-agent
