@@ -50,7 +50,7 @@ shotwin() {
 }
 
 shotarea() {
-	cd ${dir} && grim -g "$(slurp -b 1B1F28CC -c E06B74ff -s C778DD0D -w 2)" - | tee "$file" | wl-copy
+	cd ${dir} && grim -g "$(slurp -w 2)" - | tee "$file" | wl-copy
 	notify_view
 }
 
