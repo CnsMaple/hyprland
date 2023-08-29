@@ -51,6 +51,9 @@ software_list=(
 
     libnotify
 
+    libva-utils
+    libva-mesa-driver
+
     obs-studio
 
     polkit-kde-agent
@@ -89,6 +92,7 @@ software_list=(
     npm
     ripgrep
     obsidian
+    flameshot
 )
 
 

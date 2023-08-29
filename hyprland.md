@@ -261,6 +261,16 @@ exec-once = dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CUR
 
 参考：[Screen sharing on Hyprland](https://gist.github.com/PowerBall253/2dea6ddf6974ba4e5d26c3139ffb7580)
 
+# 硬件视频加速（vaapi）
+
+安装：`paru -S libva-utils libva-mesa-driver`
+
+使用（obs）：设置->输出模式->设置为高级。然后视频编码器选VAAPI就可以了。
+
+出来的视频使用：`mpv -hwdec=auto filename`，来验证，结果中有：“using hardware decoding （vaapi）”即可。
+
+[arch wiki](https://wiki.archlinuxcn.org/wiki/%E7%A1%AC%E4%BB%B6%E8%A7%86%E9%A2%91%E5%8A%A0%E9%80%9F)
+
 # 用户认证软件
 
 很多时候我们打开软件都不需要root权限，不过有些特殊的软件需要使用root权限，不过在桌面启动时无法认证并获得权限，这就需要一个图形化的认证程序，KDE旗下的**polkit-kde-agent**是个不错的选择：
