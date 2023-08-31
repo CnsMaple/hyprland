@@ -19,7 +19,7 @@ software_list=(
 
     xdg-desktop-portal-hyprland
     gtk3
-    hyprland-git 
+    hyprland
     rofi
     waybar-hyprland-git
     kitty
@@ -77,7 +77,6 @@ software_list=(
 
     yesplaymusic
     firefox
-    neovide-git
     clash-for-windows-bin
     bob
     unzip
@@ -92,7 +91,7 @@ software_list=(
     npm
     ripgrep
     obsidian
-    flameshot
+    flameshot-git
 )
 
 
