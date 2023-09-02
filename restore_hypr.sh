@@ -19,7 +19,7 @@ software_list=(
 
     xdg-desktop-portal-hyprland
     gtk3
-    hyprland
+    hyprland-git
     rofi
     waybar-hyprland-git
     kitty
@@ -170,20 +170,6 @@ if [[ $INST == "Y" || $INST == "y" ]]; then
     for SOFTWR in ${software_list[@]}; do
         install_software $SOFTWR 
     done
-
-    # Start the bluetooth service
-    echo -e "$CNT - Starting the Bluetooth Service..."
-    sudo systemctl enable --now bluetooth.service &>> $INSTLOG
-    sleep 2
-
-    # Enable the sddm login manager service
-    echo -e "$CNT - Enabling the SDDM Service..."
-    sudo systemctl enable sddm &>> $INSTLOG
-    sleep 2
-    
-    # Clean out other portals
-    echo -e "$CNT - Cleaning out conflicting xdg portals..."
-    paru -R --noconfirm xdg-desktop-portal-gnome xdg-desktop-portal-gtk &>> $INSTLOG
 else
     exit
 fi
@@ -211,6 +197,21 @@ echo -e "$CNT - Script had completed!"
 
 read -rep $'[\e[1;33mACTION\e[0m] - Would you like to start Hyprland now? (y,n) ' HYP
 if [[ $HYP == "Y" || $HYP == "y" ]]; then
+
+    # Start the bluetooth service
+    echo -e "$CNT - Starting the Bluetooth Service..."
+    sudo systemctl enable --now bluetooth.service &>> $INSTLOG
+    sleep 2
+
+    # Enable the sddm login manager service
+    echo -e "$CNT - Enabling the SDDM Service..."
+    sudo systemctl enable sddm &>> $INSTLOG
+    sleep 2
+    
+    # Clean out other portals
+    # echo -e "$CNT - Cleaning out conflicting xdg portals..."
+    # paru -R --noconfirm xdg-desktop-portal-gnome xdg-desktop-portal-gtk &>> $INSTLOG
+
     exec sudo systemctl start sddm &>> $INSTLOG
 else
     exit
