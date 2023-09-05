@@ -47,6 +47,7 @@ software_list=(
 
     slurp 
     grim 
+    wayshot
     swappy 
 
     libnotify
