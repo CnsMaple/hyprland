@@ -3,6 +3,7 @@
 software_list=(
 
     xorg-xwayland 
+    wlroots
 
     qt5-wayland 
     qt5ct
