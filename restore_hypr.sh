@@ -20,13 +20,13 @@ software_list=(
 
     xdg-desktop-portal-hyprland
     gtk3
-    hyprland-git
+    hyprland
     rofi
-    waybar-hyprland-git
+    waybar
     kitty
     swww
     mako
-    sddm-git
+    sddm
     sddm-theme-corners-git
 
     fcitx5
@@ -86,14 +86,13 @@ software_list=(
     dconf-editor
     fd
     fish
-    fuse2
     git 
     lazygit
     xmake
     npm
     ripgrep
+    fuse2
     obsidian
-    flameshot-git
 )
 
 
