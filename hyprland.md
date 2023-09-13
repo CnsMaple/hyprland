@@ -484,17 +484,11 @@ setfacl -m u:sddm:r ~/.face.icon
 # 安装virtualbox（可选）
 
 ```bash
-sudo pacman -S linux-headers
-sudo pacman -S virtualbox
-# 选择 1 virtualbox-host-dkms
-sudo pacman -S virtualbox-guest-iso
-```
-
-不知道有没有作用的指令：
-
-```bash
-sudo dkms autoinstall
-sudo modprobe vboxdrv
+sudo paru linux-headers
+sudo paru virtualbox
+# 选择 virtualbox-host-modules-arch
+sudo paru virtualbox-guest-iso
+# 使用sudo find / -type f -name VBoxGuestAdditions.iso 来找iso
 ```
 
 一些问题：
@@ -514,4 +508,4 @@ groups $USER
 
 安装：`paru -S btop`
 
-使用命令启动：btop
+使用命令启动：btop++

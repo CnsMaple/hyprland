@@ -5,7 +5,7 @@
  *******************************************************************************/
 
 * {
-    font:   "FiraCode Nerd Font Medium 12";
+    font:   "Maple Mono SC NF 18";
 
     bg0:     #2E3440;
     bg1:     #3B4252;
@@ -24,7 +24,7 @@
 
 window {
     location:   center;
-    width:      480;
+    width:      720;
 
     background-color:   @bg0;
 }

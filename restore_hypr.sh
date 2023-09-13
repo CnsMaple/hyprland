@@ -3,6 +3,7 @@
 software_list=(
 
     xorg-xwayland 
+    xorg-xrdb
     wlroots
 
     qt5-wayland 
@@ -80,8 +81,8 @@ software_list=(
     yesplaymusic
     firefox
     clash-for-windows-bin
-    bob
     unzip
+    zip
     dconf
     dconf-editor
     fd
@@ -93,6 +94,14 @@ software_list=(
     ripgrep
     fuse2
     obsidian
+)
+
+lone_software_list=(
+    qt5-base
+    python-pip
+    python-virtualenv
+    pycharm-professional
+    intellij-idea-ultimate-edition
 )
 
 
@@ -190,6 +199,9 @@ if [[ $CFG == "Y" || $CFG == "y" ]]; then
 
     sudo mkdir /etc/sddm.conf.d
     echo -e "[Theme]\nCurrent=corners" | sudo tee -a /etc/sddm.conf.d/theme.conf &>> $INSTLOG
+
+    mkdir -p ~/.local/share/rofi/themes/
+    cp .config/rofi/rofi-themes-collection/themes/squared-nord.rasi ~/.local/share/rofi/themes/
 fi
 
 
