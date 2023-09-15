@@ -78,7 +78,6 @@ software_list=(
 
     btop
 
-    yesplaymusic
     firefox
     clash-for-windows-bin
     unzip
