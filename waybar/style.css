@@ -50,6 +50,37 @@ window#waybar.hidden {
     background-color: #eb4d4b;
 }
 
+#taskbar {
+	margin-top: 6px;
+	background: rgba(16, 20, 24, 0.5);
+	transition: none;
+}
+
+#taskbar button {
+    margin: 3px;
+    border: none;
+    padding: 0 8px;
+    background: transparent;
+    color: #ffffff;
+}
+
+#taskbar button:hover {
+    background: rgba(255, 255, 255, 0.5);
+}
+
+#taskbar button.active {
+    background: #fff9bb;
+    color: #000000;
+}
+
+#taskbar button.active:hover {
+    background: #fffcdf;
+}
+
+#taskbar button.urgent {
+    background-color: #eb4d4b;
+}
+
 #mode {
     background-color: #64727D;
     border-bottom: 3px solid #ffffff;
