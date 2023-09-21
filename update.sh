@@ -7,3 +7,5 @@ cp -r ~/.config/mako ./
 cp -r ~/.config/swww ./
 cp -r ~/.config/rofi ./
 cp -r ~/.config/swaylock ./
+cp -r ~/.config/fcitx5 ./
+cp -r ~/.config/fish ./

@@ -93,6 +93,7 @@ software_list=(
     ripgrep
     fuse2
     obsidian
+    neovide
 )
 
 lone_software_list=(
@@ -195,9 +196,15 @@ if [[ $CFG == "Y" || $CFG == "y" ]]; then
     cp -r swaylock ~/.config/
     cp -r swww ~/.config/
     cp -r waybar ~/.config/
+    cp -r fcitx5 ~/.config/
+    cp -r fish ~/.config/
 
     sudo mkdir /etc/sddm.conf.d
     echo -e "[Theme]\nCurrent=corners" | sudo tee -a /etc/sddm.conf.d/theme.conf &>> $INSTLOG
+
+    cp .face.icon ~/
+    setfacl -m u:sddm:x ~/
+    setfacl -m u:sddm:r ~/.face.icon
 
     mkdir -p ~/.local/share/rofi/themes/
     cp .config/rofi/rofi-themes-collection/themes/squared-nord.rasi ~/.local/share/rofi/themes/
