@@ -9,3 +9,4 @@ cp -r ~/.config/rofi ./
 cp -r ~/.config/swaylock ./
 cp -r ~/.config/fcitx5 ./
 cp -r ~/.config/fish ./
+cp -r ~/.config/alacritty ./

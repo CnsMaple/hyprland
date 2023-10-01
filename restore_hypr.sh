@@ -94,6 +94,8 @@ software_list=(
     fuse2
     obsidian
     neovide
+    wget
+    alacritty
 )
 
 lone_software_list=(
@@ -198,6 +200,7 @@ if [[ $CFG == "Y" || $CFG == "y" ]]; then
     cp -r waybar ~/.config/
     cp -r fcitx5 ~/.config/
     cp -r fish ~/.config/
+    cp -r alacritty ~/.config/
 
     sudo mkdir /etc/sddm.conf.d
     echo -e "[Theme]\nCurrent=corners" | sudo tee -a /etc/sddm.conf.d/theme.conf &>> $INSTLOG

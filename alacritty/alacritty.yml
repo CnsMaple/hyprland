@@ -1,0 +1,24 @@
+# Alacritty配置文件
+
+# 字体设置
+font:
+  size: 18
+  normal:
+    family: "Maple Mono SC NF"
+    style: Regular
+
+# 背景透明度
+window:
+  opacity: 0.8
+
+# 启动默认Shell
+shell:
+  program: /usr/bin/fish  # 指定Fish Shell的路径
+
+# 鼠标设置
+mouse:
+  enable: true
+
+
+import:
+  - ~/.config/alacritty/alacritty-theme/themes/hyper.yaml
