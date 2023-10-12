@@ -13,9 +13,7 @@
         "tooltip-format": "{title}",
         "on-click": "activate",
         "on-click-middle": "close",
-        "ignore-list": [
-        "Alacritty"
-        ],
+        "ignore-list": [],
         "app_ids-mapping": {
         "firefoxdeveloperedition": "firefox-developer-edition"
         },
@@ -68,13 +66,15 @@
     "cpu": {
         "interval": 1,
         "format": "cpu: {usage}%",
-        "tooltip": true
+        "tooltip": true,
+        "on-click-right": "alacritty --title alacritty-btop -e btop"
     },
     "memory": {
         "interval": 1,
         "format": "men: {percentage}%",
         "tooltip": true,
-        "tooltip-format": "RAM: {used}G / {total}G\nSwap: {swapUsed}G / {swapTotal}G"
+        "tooltip-format": "RAM: {used}G / {total}G\nSwap: {swapUsed}G / {swapTotal}G",
+        "on-click-right": "alacritty --title alacritty-btop -e btop"
     },
     "network": {
         "interval": 1,

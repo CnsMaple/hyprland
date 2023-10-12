@@ -96,6 +96,8 @@ software_list=(
     neovide
     wget
     alacritty
+    fwupd
+    pavucontrol
 )
 
 lone_software_list=(
@@ -201,6 +203,7 @@ if [[ $CFG == "Y" || $CFG == "y" ]]; then
     cp -r fcitx5 ~/.config/
     cp -r fish ~/.config/
     cp -r alacritty ~/.config/
+    cp -r btop ~/.config/
 
     sudo mkdir /etc/sddm.conf.d
     echo -e "[Theme]\nCurrent=corners" | sudo tee -a /etc/sddm.conf.d/theme.conf &>> $INSTLOG
