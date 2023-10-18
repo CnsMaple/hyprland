@@ -83,7 +83,8 @@
         "format-linked": "\uf059 No IP ({ifname})",
         "format-disconnected": "\uf071 Disconnected",
         "tooltip-format": "{ifname} {ipaddr}/{cidr} via {gwaddr}",
-        "format-alt": "up: {bandwidthUpBytes} down: {bandwidthDownBytes}"
+        "format-alt": "up: {bandwidthUpBytes} down: {bandwidthDownBytes}",
+        "on-click-right": "alacritty --title alacritty-btop -e btop"
     },
     "pulseaudio": {
         "scroll-step": 5,
